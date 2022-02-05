@@ -5,7 +5,7 @@ and floodsystem.geo.stations_by_river()"""
 from floodsystem.stationdata import build_station_list
 from floodsystem.geo import rivers_with_station, stations_by_river
 
-def main():
+def run():
     """main functon that demonstrates the functions"""
 
     stations = build_station_list()
@@ -42,4 +42,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run()

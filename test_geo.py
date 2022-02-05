@@ -9,7 +9,7 @@ stations = build_station_list()
 def test_rivers_with_station():
     rivers = rivers_with_station(stations)
 
-    assert rivers > 0
+    assert len(rivers) > 0
     assert type(rivers) in [list, tuple]
 
 def test_stations_by_river():

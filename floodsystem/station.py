@@ -65,6 +65,24 @@ class MonitoringStation:
             rel_level = None
         return rel_level
 
+    def risk_level(self):
+        rel_level = self.relative_water_level()
+
+        if rel_level is None:
+            return None
+
+        if rel_level < 0.8:
+            return "low"
+
+        elif rel_level < 1.5:
+            return "moderate"
+
+        elif rel_level < 2:
+            return "high"
+
+        else:
+            return "extream"
+
 
 def inconsistent_typical_range_stations(stations):
     """"returns the station with inconsistent typical low/high values"""

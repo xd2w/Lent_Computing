@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import datetime
-from turtle import update
-from floodsystem.flood import stations_highest_rel_level
-from floodsystem.plot import *
+from floodsystem.analysis import *
 from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.datafetcher import fetch_measure_levels
-
+from floodsystem.flood import stations_highest_rel_level
+from floodsystem.plot import *
+import random
 
 
 def run():
@@ -27,8 +27,9 @@ def run():
 
 
     for station in high_risk_stations:
-        dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=100))
-        plot_water_levels(station, dates, levels)
+        dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=2))
+        plot_water_level_with_fit(station, dates, levels, 4)
+
 
 if __name__ == "__main__":
     run()
